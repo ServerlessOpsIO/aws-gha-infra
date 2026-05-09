@@ -2,10 +2,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: aws-gha-integration
-  description: Integration for GitHub Actions
+  name: aws-gha-infra
+  description: Infrastructure for GitHub Actions
   annotations:
-    github.com/project-slug: ServerlessOpsIO/aws-gha-integration
+    github.com/project-slug: ServerlessOpsIO/aws-gha-infra
 spec:
   type: cloud-config
   lifecycle: production

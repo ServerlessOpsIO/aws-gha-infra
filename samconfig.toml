@@ -4,7 +4,7 @@ version = 0.1
 
 [default]
 [default.global.parameters]
-stack_name = "aws-gha-integration"
+stack_name = "aws-gha-infra"
 
 [default.build.parameters]
 cached = true

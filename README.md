@@ -1,4 +1,4 @@
-# aws-gha-integration
+# aws-gha-infra
 
 AWS and GitHub Actions Integration
 
