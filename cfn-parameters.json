@@ -5,5 +5,6 @@
     "CiCdOuIds": $secrets.AWS_ORG_CICD_OU_ID,
     "CicdAwsAccountId": $secrets.AWS_CICD_ACCOUNT_ID,
     "CustomResourceTopicName": "CfnCustomResource",
-    "CustomResourceSsmParamName": "/org/cicd/CustomResourceTopic"
+    "CustomResourceSsmParamName": "/org/cicd/CustomResourceTopic",
+    "IdpName": "token.actions.githubusercontent.com"
 }
