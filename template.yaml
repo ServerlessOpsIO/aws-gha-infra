@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform:
+  - 'AWS::Serverless-2016-10-31'
+Description: GitHib Actions integration stacks
+
+Parameters:
+  AwsOrganizationId:
+    Type: String
+    Description: "AWS Org ID of accounts allowed to access S3 Bucket"
+  CustomResourceTopicName:
+    Type: String
+    Description: Custom resource ARN
+  IdpName:
+    Type: String
+    Description: "Name of IAM Identity Provider"
+
+Resources:
+  SamBootstrapStack:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: ./stacks/sam-bootstrap/template.yaml
+      Parameters:
+        AwsOrganizationId: !Ref AwsOrganizationId
+        BuildAccount: 'true'  # This is from a time when we created this stack in deployment
+                              # accounts to allow people to deploy locally and bypass CI/CD.
+
+  CfnCustomResourcesStack:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: ./stacks/cfn-custom-resources/template.yaml
+      Parameters:
+        AwsOrganizationId: !Ref AwsOrganizationId
+        CustomResourceTopicName: !Ref CustomResourceTopicName
+
+  GhaIamStack:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: ./stacks/gha-iam/template.yaml
+      Parameters:
+        AwsOrganizationId: !Ref AwsOrganizationId
+        DeployBucketArn: !GetAtt SamBootstrapStack.Outputs.SamDeployBucketArnOutput
+        IdpName: !Ref IdpName
