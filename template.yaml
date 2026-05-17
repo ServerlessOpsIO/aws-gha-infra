@@ -35,7 +35,7 @@ Resources:
   GhaIamStack:
     Type: AWS::Serverless::Application
     Properties:
-      Location: ./stacks/gha-iam/template.yaml
+      Location: ./stacks/gha-build-iam/template.yaml
       Parameters:
         AwsOrganizationId: !Ref AwsOrganizationId
         DeployBucketArn: !GetAtt SamBootstrapStack.Outputs.SamDeployBucketArnOutput
