@@ -19,8 +19,7 @@ jobs:
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
         with:
-          #build_aws_account_id: ${{ secrets.AWS_CICD_ACCOUNT_ID }}
-          build_aws_account_id: 225989329251
+          build_aws_account_id: ${{ secrets.AWS_CICD_ACCOUNT_ID }}
 
       - name: Install AWS SAM
         uses: aws-actions/setup-sam@v2
@@ -35,7 +34,6 @@ jobs:
         uses: ServerlessOpsIO/gha-store-artifacts@v2
         with:
           use_aws_sam: true
-          sam_s3_bucket: aws-sam-cli-sourcebucket-225989329251-us-east-1
 
 
   deploy:
@@ -55,8 +53,7 @@ jobs:
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
         with:
-          #build_aws_account_id: ${{ secrets.AWS_CICD_ACCOUNT_ID }}
-          build_aws_account_id: 225989329251
+          build_aws_account_id: ${{ secrets.AWS_CICD_ACCOUNT_ID }}
           deploy_aws_account_id: ${{ secrets.DEPLOYMENT_ACCOUNT_ID }}
 
       - name: Install AWS SAM
