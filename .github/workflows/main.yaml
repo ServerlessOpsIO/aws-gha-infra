@@ -57,7 +57,7 @@ jobs:
           deploy_aws_account_id: ${{ secrets.DEPLOYMENT_ACCOUNT_ID }}
 
       - name: Install AWS SAM
-        uses: aws-actions/setup-sam@v2
+        uses: aws-actions/setup-sam@v3
 
       - name: Deploy via AWS SAM
         uses: ServerlessOpsIO/gha-deploy-aws-sam@v1
