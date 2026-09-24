@@ -37,6 +37,9 @@ Resources:
                   "repo:ServerlessOpsIO/*:ref:refs/heads/*",
                   "repo:ServerlessOpsIO/*:ref:refs/tags/*",
                   "repo:ServerlessOpsIO/*:environment:*",
+                  "repo:ServerlessOpsIO@33529315/*:ref:refs/heads/*",
+                  "repo:ServerlessOpsIO@33529315/*:ref:refs/tags/*",
+                  "repo:ServerlessOpsIO@33529315/*:environment:*",
                 ]
             Action:
               - 'sts:AssumeRoleWithWebIdentity'
