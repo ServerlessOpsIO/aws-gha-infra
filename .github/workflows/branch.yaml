@@ -31,6 +31,9 @@ jobs:
       - name: Validate child templates
         run: find ./stacks -type f -exec sam validate --lint --template-file '{}' \;
 
+      - name: Build deployment artifact
+        run: sam build
+
       - name: Store Artifacts
         uses: ServerlessOpsIO/gha-store-artifacts@v2
         with:
